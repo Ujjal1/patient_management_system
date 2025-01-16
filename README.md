@@ -1,24 +1,32 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Execute the following commands to run this code
 
-Things you may want to cover:
+Install RVM
 
-* Ruby version
+`sudo apt-get install software-properties-common`
 
-* System dependencies
+`sudo apt-add-repository -y ppa:rael-gc/rvm`
 
-* Configuration
+`sudo apt-get update`
 
-* Database creation
+`sudo apt-get install rvm`
 
-* Database initialization
+`sudo usermod -a -G rvm $USER`
 
-* How to run the test suite
+`echo 'source "/etc/profile.d/rvm.sh"' >> ~/.bashrc`
 
-* Services (job queues, cache servers, search engines, etc.)
+And then reboot the system
 
-* Deployment instructions
+Then run `rvm install ruby-3.3.5`
 
-* ...
+Now clone this repo in your system and the run the following commands
+
+`sudo apt install libpq-dev`
+
+`bundle install`
+
+`rails db:migrate `
+
+And now run `rails server` to run the code and you can access the UI by going to the URL "localhost:3000" in your browser
+
