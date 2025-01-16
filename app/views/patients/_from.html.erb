@@ -1,0 +1,25 @@
+<%= form_with model: @patient, local: true do |f| %>
+  <div>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+
+  <div>
+    <%= f.label :next_appointment %>
+    <%= f.datetime_select :next_appointment, include_blank: true %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

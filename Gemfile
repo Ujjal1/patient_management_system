@@ -49,11 +49,19 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  gem 'faker'
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem 'devise' # For authentication
+  gem 'pg' # PostgreSQL (optional, can use SQLite by default)
+  gem 'kaminari' # For pagination
+  gem 'bootstrap' # Optional, for better styling
+  gem 'simple_form' # For easier form creation
+  gem 'sassc-rails'
 end
 
 group :test do

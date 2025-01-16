@@ -1,0 +1,39 @@
+<h1>Patients</h1>
+
+<%= form_with url: patients_path, method: :get, local: true do %>
+  <div>
+    <%= text_field_tag :search, params[:search], placeholder: 'Search by name or email' %>
+    <%= submit_tag 'Search' %>
+    <%= link_to 'Show All', patients_path %>
+  </div>
+<% end %>
+
+<%= link_to 'Create New Patient', new_patient_path, class: 'btn btn-primary' %>
+
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Next Appointment</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <td><%= patient.first_name %></td>
+        <td><%= patient.last_name %></td>
+        <td><%= patient.email %></td>
+        <td><%= patient.next_appointment || 'N/A' %></td>
+        <td>
+          <%= link_to 'Edit', edit_patient_path(patient) %> |
+          <%= link_to 'Delete', patient_path(patient), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @patients %>
